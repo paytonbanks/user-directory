@@ -9,14 +9,6 @@ export default function App() {
   const [q, setQ] = useState("");
 
 
-
-  // useEffect(() => {
-  //   fetch("https://randomuser.me/api/?&results=100&nat=us")
-  //     .then((response) => response.json())
-  //     .then((json) => setData(json));
-
-  // }, []);
-
   return (
     <div>
       <div>
@@ -35,16 +27,3 @@ export default function App() {
   );
 
 }
-
-
-//App
-  //Header 
-  //Main
-    //AreaData
-      //DataTable <create table header <tr>
-        //Nav <render search bar here
-        //BodyData < each employee row
-
-
-
-  

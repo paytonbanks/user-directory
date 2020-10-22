@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import DataTable from  "./DataTable";
 import Nav from "./Nav";
-import Results from "./Results";
-import { render } from "@testing-library/react";
 
 export default class DataArea extends Component {
     state = {

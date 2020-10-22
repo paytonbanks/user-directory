@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 function Search(props) {
 
     return (
@@ -11,7 +9,7 @@ function Search(props) {
                 value={props.search}
                 name="search"
                 list="text" 
-        
+    
            />
         </div>
     );

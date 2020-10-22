@@ -1,7 +1,6 @@
-import React, { useImperativeHandle } from "react";
+import React, { useHandle } from "react";
 import DataBody from "./DataBody";
 
-//youll create tables header here
 function DataTable({ users }){
    
     var headings = [{name: "Image"}, {name: "Name"}, {name:"Phone"}, {name: "Email"} ]
@@ -17,7 +16,7 @@ function DataTable({ users }){
                           return (
                               <th
                               key={name}
-                                style={{width: "10%"}}
+                                style={{width: "25%", alignItems: "center", }}
                               >
                                   <span>{name}</span>
                               </th>

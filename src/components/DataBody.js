@@ -9,7 +9,7 @@ function DataBody({ users }){
                     return(
                          <tr>
                              <td>
-                                 <img src={user.picture.large} />
+                                 <img src={user.picture.large} alt="emp photo" />
                              </td>
                              <td>{user.name.first} {user.name.last}</td>
                              <td>{user.phone}</td>
