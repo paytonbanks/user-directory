@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Main from "./components/Container";
-
-
+import Main from './components/Container';
 
 
 

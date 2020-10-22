@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import DataTable from  "./DataTable";
-import Search from "./Search";
+import Nav from "./Nav";
 import Results from "./Results";
 import { render } from "@testing-library/react";
 
@@ -9,26 +9,59 @@ export default class DataArea extends Component {
     state = {
         results: [],
         sort: [],
-    }
+        filteredUsers: [{}] 
+   }
 
 
     componentDidMount() {
         console.log("go")
         API.getUsers()
-        .then(res => this.setState({ results: res.data.results }))
+        .then(res => this.setState({ 
+            results: res.data.results,
+            filteredUsers: res.data.results
+         }))
         .catch(err => 
             console.log(err)
         );
+
     }
+
+    handleSearch = event => {
+      
+        const target = event.target.value.toLocaleLowerCase();
+        const filteredArr = this.state.results.filter( item => {
+           // console.log(item)
+            let values = Object.values(item).join("").toLocaleLowerCase()
+            return values.indexOf(target) !== -1;
+        })
+
+        this.setState({
+            filteredUsers: filteredArr
+        })
+        // const name = event.target.name;
+        // this.setState({
+            
+
+        // });
+    };
+    
+    // handleFormSubmit = event => {
+    //     event.preventDefault();
+    //     this.searchUsers(this.state.search);
+
+    // };
+
 
 
     render() {
         console.log("hey", this.state.results)
         return (
             <div>
-            nav bar here
+            <Nav
+                handleSearch={this.handleSearch}
+            />
             <DataTable 
-                    users={this.state.results}
+                users={this.state.filteredUsers}
             />
             </div>
         );

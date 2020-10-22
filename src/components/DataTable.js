@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useImperativeHandle } from "react";
 import DataBody from "./DataBody";
 
 //youll create tables header here
 function DataTable({ users }){
    
-    var headings = [{name: "Image"}, {name: "First"}, {name: "Last"}, {name:"Phone"}, {name: "Email"}, {name: "DOB"} ]
+    var headings = [{name: "Image"}, {name: "Name"}, {name:"Phone"}, {name: "Email"} ]
 
     return(
         <>
@@ -34,6 +34,3 @@ function DataTable({ users }){
 }
 
 export default DataTable
-
-
-//name image dob number

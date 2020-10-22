@@ -2,18 +2,26 @@ import React from 'react';
 
 
 
-function Nav() {
+
+
+function Nav({ handleSearch }) {
+   
     return (
         <nav>
-            <h3>USER DIRECTORY</h3>
+           <div>
+               <div>
+                   <form>
+                       <input
+                            type="search"
+                            onChange={e => handleSearch(e)}
+                       />
+                   </form>
+               </div>
+           </div>
         </nav>
     );
-
-
-
-
 }
 
-export default nav;
+export default Nav;
 
 
