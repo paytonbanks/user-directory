@@ -2,9 +2,8 @@ import React, { useHandle } from "react";
 import DataBody from "./DataBody";
 
 function DataTable({ users }){
-   
-    var headings = [{name: "Image"}, {name: "Name"}, {name:"Phone"}, {name: "Email"} ]
 
+    var headings = [{name: "Image"}, {name: "Name"}, {name:"Phone"}, {name: "Email"} ]
     return(
         <>
         <table>

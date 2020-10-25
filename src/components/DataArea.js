@@ -4,66 +4,47 @@ import DataTable from  "./DataTable";
 import Nav from "./Nav";
 
 export default class DataArea extends Component {
-    state = {
-        results: [],
-        sort: [],
-        filteredUsers: [{}] 
-   }
+  state = {
+    results: [],
+    sort: [],
+    filteredUsers: [{}] 
+  }
 
+  componentDidMount() {
+    console.log("go")
+    API.getUsers()
+    .then(res => this.setState({ 
+      results: res.data.results,
+      filteredUsers: res.data.results
+    }))
+    .catch(err => 
+        console.log(err)
+    );
+  }
 
-    componentDidMount() {
-        console.log("go")
-        API.getUsers()
-        .then(res => this.setState({ 
-            results: res.data.results,
-            filteredUsers: res.data.results
-         }))
-        .catch(err => 
-            console.log(err)
-        );
+  handleSearch = event => {
+    const target = event.target.value.toLocaleLowerCase();
+    const filteredArr = this.state.results.filter( item => {
+        let values = Object.values(item).join("").toLocaleLowerCase()
+        return values.indexOf(target) !== -1;
+    })
 
-    }
-
-    handleSearch = event => {
-      
-        const target = event.target.value.toLocaleLowerCase();
-        const filteredArr = this.state.results.filter( item => {
-           // console.log(item)
-            let values = Object.values(item).join("").toLocaleLowerCase()
-            return values.indexOf(target) !== -1;
-        })
-
-        this.setState({
-            filteredUsers: filteredArr
-        })
-        // const name = event.target.name;
-        // this.setState({
-            
-
-        // });
-    };
-    
-    // handleFormSubmit = event => {
-    //     event.preventDefault();
-    //     this.searchUsers(this.state.search);
-
-    // };
-
-
-
-    render() {
-        console.log("hey", this.state.results)
-        return (
-            <div>
-            <Nav
-                handleSearch={this.handleSearch}
-            />
-            <DataTable 
-                users={this.state.filteredUsers}
-            />
-            </div>
-        );
-    }
-
-
+    this.setState({
+      filteredUsers: filteredArr
+    })
+  };
+  
+  render() {
+    console.log("hey", this.state.results)
+    return (
+      <div>
+      <Nav
+          handleSearch={this.handleSearch}
+      />
+      <DataTable 
+          users={this.state.filteredUsers}
+      />
+      </div>
+    );
+  }
 };
