@@ -20,5 +20,5 @@ The application was built using Model View Control(MVC) design architecture. A M
 - [Email](mailto:payton.banks@gmail.com)
 
 ## Project Site
-*link*
+*link*\
 [Employee Directory]()
