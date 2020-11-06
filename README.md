@@ -21,4 +21,4 @@ The application was built using Model View Control(MVC) design architecture. A M
 
 ## Project Site
 *link*\
-[Employee Directory]()
+[Employee Directory](https://paytonbanks.github.io/user-directory/)
