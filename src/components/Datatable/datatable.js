@@ -1,13 +1,13 @@
 import React, { useHandle } from "react";
-import DataBody from "./DataBody";
+import DataBody from "../Databody/databody";
 
 function DataTable({ users }){
 
-    var headings = [{name: "Image"}, {name: "Name"}, {name:"Phone"}, {name: "Email"} ]
+    var headings = [{name: "Name"}, {name:"Phone"}, {name: "Email"} ]
     return(
         <>
         <table>
-            <thead>
+            <thead className="Tablerow">
                 <tr>
                     {
                       headings.map(({ name }) =>{
@@ -15,7 +15,7 @@ function DataTable({ users }){
                           return (
                               <th
                               key={name}
-                                style={{width: "25%", alignItems: "center", }}
+                                style={{width: "30%", alignItems: "center", }}
                               >
                                   <span>{name}</span>
                               </th>
